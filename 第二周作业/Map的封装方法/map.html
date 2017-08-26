@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [3, 4, 7, 9, 0, 1, 33];
+    Array.prototype.myMap = function (callback, context) {
+        context = callback || window;
+        var ary = [];
+        var cur;
+        if ([].map) {
+            ary = this.map(callback, context);
+        } else {
+            for (var i = 0; i < this.length; i++) {
+                cur = callback.call(context, this[i], i, this);
+                ary[ary.length] = cur;
+            }
+        }
+        return ary;
+    };
+
+    console.log(ary.myMap(function () {
+        return arguments[0] + 2;
+    }))
+
+
+</script>
