@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary1=[3,6,8,9,17,0,55,98];
+    //假设法
+   /* var max=ary1[0];
+    var min=ary1[0];
+    for (var i = 0; i < ary1.length; i++) {
+        ary1[i]>max?max=ary1[i]:null;
+        ary1[i]<min?min=ary1[i]:null;
+    }
+    console.log(min);
+    console.log(max);*/
+    //排序法
+   /* ary1.sort(function(a,b){return a-b;});
+    min=ary1[0];
+    max=ary1[ary1.length-1];
+    console.log(min);
+    console.log(max);*/
+    //使用Math
+   /* var str=ary1.join();
+     var max=eval("Math.max("+str+")");
+     var min=eval("Math.min("+str+")");
+     console.log(max);
+     console.log(min);*/
+    console.log(Math.max.apply(null, ary1));
+    console.log(Math.min.apply(null, ary1));
+</script>

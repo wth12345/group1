@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="reset.min.css">
+    <style type="text/css">
+        .tab {
+            width: 304px;
+            margin: 40px auto;
+        }
+
+        ul {
+            height: 40px;
+            line-height: 40px;
+            border-left: 1px solid green;
+        }
+
+        ul li {
+            float: left;
+            width: 100px;
+            text-align: center;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+            border-bottom: 1px solid white;
+            background: green;
+            color: white;
+        }
+
+        .tab div {
+            width: 301px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border: 1px solid green;
+            display: none;
+        }
+
+        .tab div.selectDiv {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab1" class="tab">
+    <ul>
+        <li >我是第一个</li>
+        <li>我是第二个</li>
+        <li>我是第三个</li>
+    </ul>
+    <div class="selectDiv">我是第一个内容</div>
+    <div>我是第二个内容</div>
+    <div>我是第三个内容</div>
+</div>
+<div id="tab" class="tab">
+    <ul>
+        <li>我是第一个</li>
+        <li>我是第二个</li>
+        <li>我是第三个</li>
+    </ul>
+    <div class="selectDiv">我是第一个内容</div>
+    <div>我是第二个内容</div>
+    <div>我是第三个内容</div>
+</div>
+</body>
+</html>
+<script>
+    function Tab(name, select) {
+        this.name = name;
+        this.select = select || 0;
+        this.origin();
+    }
+    Tab.prototype.origin = function () {
+        this.getEle(this.name);
+        this.forEach();
+        this.sel(this.select)
+    };
+    Tab.prototype.getEle = function (id) {
+        var tab = document.getElementById(id);
+        this.oLis = tab.getElementsByTagName("li");
+        this.oDivs = tab.getElementsByTagName("div")
+    };
+    Tab.prototype.forEach = function () {
+        var that = this;
+        for (var i = 0; i < this.oLis.length; i++) {
+            -(function (i) {
+                that.oLis[i].onmouseover = function () {
+                    that.sel(i);
+                }
+            })(i)
+        }
+
+    };
+    Tab.prototype.sel = function (n) {
+        for (var i = 0; i < this.oLis.length; i++) {
+            //this.oLis[i].className="";
+            this.oDivs[i].className='';
+        }
+        this.oDivs[n].className='selectDiv';
+    }
+    new Tab('tab');
+    new Tab('tab1',2)
+</script>

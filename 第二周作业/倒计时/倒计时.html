@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style type="text/css">
+        #final {
+            width: 300px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 50px auto;
+            color: white;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="final"></div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById('final');;
+    function lastTime() {
+        var now = new Date();
+        var str = '';
+        var timer=null;
+        var target = new Date('2017/8/30 12:50:00');
+        var timeSpan = target - now;
+        var hours = Math.floor(timeSpan / (60 * 60 * 1000));
+        var timeSpan = timeSpan - hours * 60 * 60 * 1000;
+        var minute = Math.floor(timeSpan / (60 * 1000));
+        var timeSpan = timeSpan - minute * 60 * 1000;
+        var second = Math.floor(timeSpan / 1000);
+        oDiv.innerHTML = '距离结束还有' + addZero(hours) + '时' + addZero(minute) + '分' + addZero(second) + '秒';
+        function addZero(num) {
+            return num < 10 ? "0" + num : num
+        }
+    }
+    lastTime();
+
+
+</script>

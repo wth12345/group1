@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str = 'abcdefghigkrmnopqstuvwxyzABCDEFGHIGKRMNOPQSTUVWXYZ1234567890';
+    function fourLetters(str) {
+        var n;
+        var cur;
+        var str1='';
+        while (str1.length < 4) {
+            n = Math.round(Math.random() * 60);
+            cur = str.charAt(n);
+            if (str1.indexOf(cur) == -1) {
+                str1 += cur;
+            }
+        }
+        return str1;
+    }
+    console.log(fourLetters(str));
+
+
+</script>

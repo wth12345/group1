@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [1, 2, 3, 1, 1, 2, 3];
+   /* function myfn(ary) {
+        for (var i = 0; i < ary.length; i++) {
+            var cur = ary[i];
+            for (var j = i +1; j < ary.length ; j++) {
+                if (cur == ary[j]) {
+                    ary.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+        return ary;
+    }*/
+    function myfn(ary){
+        var obj={};
+        for (var i = 0; i < ary.length; i++) {
+            var cur=ary[i];
+            if (obj[cur]==cur){
+                ary.splice(i,1);
+                i--;
+            }else {
+                obj[cur]=cur;
+            }
+        }
+        return ary;
+    }
+    console.log(myfn(ary));
+</script>
