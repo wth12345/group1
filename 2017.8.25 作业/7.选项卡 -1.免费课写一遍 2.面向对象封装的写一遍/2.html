@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #tab1{
+            width: 304px;
+            margin: 20px auto;
+        }
+        #tab1 ul{
+            overflow: hidden;
+            border-right: 1px solid green;
+        }
+        #tab1 ul li{
+            width: 100px;
+            border-left:1px solid green;
+            border-top:1px solid green;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            background: pink;
+            color: #fff;
+        }
+
+        #tab1 div{
+            border:1px solid green;
+            height: 200px;
+            display: none;
+        }
+        #tab1 ul li.selectLi{
+            background: palegreen;
+        }
+        #tab1 div.selectDiv{
+            display: block;
+            background: palegreen;
+        }
+    </style>
+</head>
+<body>
+<div id="tab1" class="div">
+    <ul>
+        <li class="selectLi" >吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+    <div class="selectDiv">JS好难啊</div>
+    <div>肚子好饿啊</div>
+    <div>还不下课啊</div>
+</div>
+</body>
+</html>
+<script>
+    var oTab = document.getElementById("tab1");
+    var oLis = oTab.getElementsByTagName('li');
+    var oDivs = oTab.getElementsByTagName("div");
+    function tabChange(cur){
+        for (var i = 0; i < oLis.length; i++) {
+            oLis[i].className = null;
+            oDivs[i].className = null;
+        }
+        oLis[cur].className = "selectLi";
+        oDivs[cur].className = "selectDiv";
+    }
+    for (var i = 0; i < oLis.length; i++) {
+        oLis[i].saber = i;
+        oLis[i].onclick = function(){
+            tabChange(this.cur);
+        }
+
+    }
+
+    /*function Tab(option){
+        this.id =option.id;
+        this.select = option.select || 0;
+        this.init();//初始化
+    }
+    Tab.prototype.init = function(){
+        //1.获取元素；2.绑定事件；3.实现tab切换;4.初始化选中的效果
+        this.getEle();
+        this.bind();
+        changeTab(this.selectLi);
+    };
+    Tab.prototype.getEle = function(){
+        var oTab = document.getElementById("this.id");
+        this.oLis = oTab.getElementsByTagName("li");
+        this.oDiv = oTab.getElementsByTagName("div");
+    };
+    Tab.prototype.bind = function(){
+        for (var i = 0; i < this.oLis.length; i++) {
+            (function(i){
+                var that = this;
+                that.oLis[i].onclick = function(){
+                    that.changeTab(i)
+                }
+            })(i);
+
+        }
+    };
+    Tab.prototype.changeTab = function(){
+        for (var i = 0; i < this.oLis.length; i++) {
+            var that = this;
+            that.oLis.className = "";
+            that.oDiv.className = "";
+        }
+        this.oLis[n].className = "selectLi";
+        this.oDiv[n].className = "selectDiv";
+    };
+
+    new Tab({id:"tab1",select:0});
+    new Tab({id:"tab2",select:2});*/
+</script>

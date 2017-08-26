@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary = [3,5,9,5,9,9,6,3];
+    var obj = {};
+    for (var i = 0; i < ary.length; i++) {
+        var cur = ary[i];
+        if(obj[cur] == cur){
+            ary.splice(i,1);
+            i--;
+        }
+        obj[cur] = cur;
+    }
+    console.log(ary);
+</script>
+</body>
+</html>

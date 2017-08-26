@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sum(){
+        var total = null;
+        for (var i = 0; i < arguments.length; i++) {
+            var cur = arguments[i];
+            if(!isNaN(cur)){
+                total += Number(cur);
+            }
+        }
+        return total;
+    }
+    var total = sum(1, "1", "12px", NaN,"王天昊");
+    console.log(total);
+
+</script>
+</body>
+</html>

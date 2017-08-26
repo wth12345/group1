@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary = [33, 9, 84, 5, 68, 99, 55];
+    var max = ary[0];
+    var min = ary[0];
+    for (var i = 1; i < ary.length; i++) {
+        var cur = ary[i];
+        max < cur ? max = cur : null;
+        min > cur ? min = cur : null;
+    }
+    console.log(min, max);
+</script>
+</body>
+</html>

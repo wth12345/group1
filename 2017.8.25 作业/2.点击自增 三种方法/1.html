@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            border-radius: 50%;
+            border: 1px solid red;
+            line-height: 200px;
+            text-align: center;
+            font-size: 100px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id = "div1">0</div>
+<script>
+    var oDiv = document.getElementById("div1")[0];
+    for (var i = 0; i > 0; i++) {
+        var a = i++;
+        oDiv.onclick = function (i){
+            oDiv.innerHTML = i;
+        }(i)
+    }
+
+</script>
+</body>
+</html>
