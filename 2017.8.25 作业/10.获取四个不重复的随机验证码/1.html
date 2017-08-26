@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oBox = document.getElementById("box");
+    var str = "0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ";
+    function a(){
+        var str1 = "";
+        for (var i = 0; i < 4; i++) {
+            var index = Math.round(Math.random()*((61-0)+0));
+            var random = str[index];
+            if(str1.indexOf(random) == -1){
+                str1 += random;
+            }else{
+                i--;
+            }
+        }
+        return str1;
+    }
+    var random = a();
+    oBox.innerHTML = random;
+
+</script>
+</body>
+</html>

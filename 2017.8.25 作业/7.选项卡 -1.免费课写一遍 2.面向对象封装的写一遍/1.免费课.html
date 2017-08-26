@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #tab{
+            width: 243px;
+            height: 30px;
+            border: 1px solid red;
+            border-left: 0;
+            background-color: yellow;
+            list-style: none;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0;
+        }
+        #tab li{
+            width: 80px;
+            border-left: 1px solid red;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+          }
+        #tab li.selectLi{
+            color: blue;
+            background-color: pink;
+        }
+        div{
+            display: none;
+            width: 242px;
+            height: 200px;
+            border: 1px solid red;
+            background-color: pink;
+            border-top: 0;
+            margin: 0 auto;
+            padding: 0;
+        }
+        div.selectDiv{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul id = tab>
+    <li class="selectLi">学习</li>
+    <li>使我</li>
+    <li>快乐</li>
+</ul>
+<div class="selectDiv">CSS</div>
+<div>JS</div>
+<div>。。。</div>
+</body>
+</html>
+<script>
+    var oUl = document.getElementById("tab");
+    var oLis =oUl.getElementsByTagName("li");
+    var oDiv = document.getElementsByTagName("div");
+    /*for (var i = 0; i < oLis.length; i++) {
+        oLis[i].color = i;
+        oLis[i].onclick = function(){
+            changeTab(this.color);
+        }
+    }
+    var preIndex = 0;
+    function changeTab(n){
+        oLis[preIndex].className = "";
+        oDiv[preIndex].className = "";
+        oLis[n].className = "selectLi";
+        oDiv[n].className = "selectDiv";
+        preIndex = n;
+    }*/
+    var preIndex = 0;
+    for (var i = 0; i < oLis.length; i++) {
+        oLis[i].color = i;
+        oLis[i].onclick = function(){
+            var cur = this.color;
+            oLis[preIndex].className = "";
+            oDiv[preIndex].className = "";
+            oLis[cur].className = "selectLi";
+            oDiv[cur].className = "selectDiv";
+            preIndex = cur;
+        }
+    }
+</script>

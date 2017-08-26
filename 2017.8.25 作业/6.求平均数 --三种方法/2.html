@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function average(){
+        var max = Math.max.apply(null,arguments);
+        var min = Math.min.apply(null,arguments);
+        var total = null;
+        for (var i = 0; i < arguments.length; i++) {
+            total += arguments[i];
+        }
+        return ((total-max-min)/(arguments.length-2)).toFixed(2);
+    }
+    var res = average(20,10,15,33,13,17,98,87);
+    console.log(res);
+</script>
+</body>
+</html>
