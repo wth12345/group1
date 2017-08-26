@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function average(){
+        var ary = [].slice.call(arguments);
+        ary.sort(function(a,b){return a-b});
+        ary.shift();
+        ary.pop();
+        return (eval(ary.join("+"))/ary.length).toFixed(2);
+    }
+    var res = average(84,85,86,98,75,88,87);
+    console.log(res);
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 600px;
+            height: 50px;
+            background-color: palegreen;
+            margin: 0 auto;
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 3px;
+            color: darkmagenta;
+            border-radius: 5px;
+        }
+
+        #div1 span {
+            padding-left: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">距离找到女朋友还有<span>0时0分0秒</span></div>
+<script>
+    var oDiv = document.getElementById("div1");
+    var oSpan = oDiv.getElementsByTagName("span")[0];
+    function getTime() {
+        var now = new Date();
+        var target = new Date("2018-1-1 00:00:00");
+        var spanTime = target.getTime() - now.getTime();
+        var hours = Math.floor(spanTime / (60 * 60 * 1000));
+        spanTime -= hours * 60 * 60 * 1000;
+        var minutes = Math.floor(spanTime / (60 * 1000));
+        spanTime -= minutes * 60 * 1000;
+        var seconds = Math.floor(spanTime / 1000);
+
+        oSpan.innerHTML = hours + "时" + minutes + "分" + seconds + "秒";
+    }
+    getTime();
+    var timer = setInterval(getTime, 1000);
+    oDiv.onclick = function () {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        } else {
+            timer = setInterval(getTime, 1000);
+        }
+    }
+</script>
+</body>
+</html>

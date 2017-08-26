@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //方法一：
+    /*function average() {
+        var min = Math.min.apply(null, arguments);
+        var max = Math.max.apply(null, arguments);
+        var total = null;
+        for (var i = 0; i < arguments.length; i++) {
+            total += arguments[i];
+        }
+        var res = (total - min - max) / (arguments.length - 2);
+        return res.toFixed(2)
+    }*/
+
+    //方法二：
+    /*function average() {
+        var ary = [].slice.call(arguments);
+        ary.sort(function (a, b) {
+            return a - b;
+        });
+        ary.pop();
+        ary.shift();
+        var res = eval(ary.join("+")) / ary.length;
+        return res.toFixed(2);
+    }*/
+
+    //方法三：
+
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .tab {
+            width: 304px;
+            margin: 10px auto;
+        }
+
+        .tab ul {
+            border: 1px solid palegreen;
+            border-left: 0;
+            overflow: hidden;
+        }
+
+        .tab ul li {
+            width: 100px;
+            border-left: 1px solid palegreen;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .tab div {
+            border: 1px solid palegreen;
+            margin-top: -1px;
+            height: 150px;
+            display: none;
+        }
+
+        .tab ul li.selectLi {
+            color: #fff;
+            background: orange;
+        }
+
+        .tab div.selectDiv {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="tab" id="tab1">
+    <ul>
+        <li class="selectLi">选项卡一</li>
+        <li>选项卡二</li>
+        <li>选项卡三</li>
+    </ul>
+    <div class="selectDiv">选项卡一内容</div>
+    <div>选项卡二内容</div>
+    <div>选项卡三内容</div>
+</div>
+<script>
+    //保存变量
+    /*var oDiv = document.getElementById("tab1");
+     var oLis = oDiv.getElementsByTagName("li");
+     var oDivs = oDiv.getElementsByTagName("div");
+     for(var i = 0;i<oLis.length;i++){
+     oLis[i].zhuFeng = i;
+     oLis[i].onclick = function () {
+     for(var j =0;j<oLis.length;j++){
+     oLis[j].className =null;
+     oDivs[j].className =null;
+     }
+     oLis[this.zhuFeng].className = "selectLi";
+     oDivs[this.zhuFeng].className = "selectDiv";
+     }
+     }*/
+
+    //面向对象
+    function Tab(option) {
+        this.id = option.id;
+        this.select = option.select || 0;
+        this.init();
+    }
+    Tab.prototype.init = function () {
+        this.get();
+        this.bang();
+        this.chu(this.select);
+    };
+    Tab.prototype.get = function () {
+        var oDiv = document.getElementById(this.id);
+        this.oLis = oDiv.getElementsByTagName("li");
+        this.oDivs = oDiv.getElementsByTagName("div");
+    };
+    Tab.prototype.bang = function () {
+        var that = this;
+        for (var i = 0; i < this.oLis.length; i++) {
+            ~(function (i) {
+                that.oLis[i].onclick = function () {
+                    that.chu(i);
+                }
+            })(i);
+        }
+    };
+    Tab.prototype.chu = function (n) {
+        for (var i = 0; i < this.oLis.length; i++) {
+            this.oLis[i].className = "";
+            this.oDivs[i].className = "";
+        }
+        this.oLis[n].className = "selectLi";
+        this.oDivs[n].className = "selectDiv";
+    };
+    new Tab({id: "tab1",select:1});
+</script>
+</body>
+</html>

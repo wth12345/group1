@@ -1,0 +1,37 @@
+[
+  {
+    "img": "img/pic.jpg",
+    "title": "华为好玩的手表1",
+    "date": "2017-8-25",
+    "price": 26,
+    "hot": 33
+  },
+  {
+    "img": "img/pic.jpg",
+    "title": "华为好玩的手表2",
+    "date": "2016-6-6",
+    "price": 58,
+    "hot": 103
+  },
+  {
+    "img": "img/pic.jpg",
+    "title": "华为好玩的手表3",
+    "date": "2017-12-8",
+    "price": 61,
+    "hot": 52
+  },
+  {
+    "img": "img/pic.jpg",
+    "title": "华为好玩的手表4",
+    "date": "1994-3-26",
+    "price": 99,
+    "hot": 99
+  },
+  {
+    "img": "img/pic.jpg",
+    "title": "华为好玩的手表5",
+    "date": "2018-1-1",
+    "price": 75,
+    "hot": 1000
+  }
+]

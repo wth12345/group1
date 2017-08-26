@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+<body>
+<script>
+    //第一种---->利用--for循环
+    var tab = [21,11,11,32,47,45,66,87,66];
+    for (var i = 0; i < tab.length-1; i++) {
+        var ary = tab[i];
+        for (var j = i + 1; j < tab.length; j++) {
+            if (ary === tab[j]) {
+                tab.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    console.log(tab);
+
+
+
+    //第二种---->利用对象作为中间的媒介
+    var obj=[];
+    var num=[21,11,11,32,47,45,66,87,66];
+    for(var i=0;i<num.length;i++){
+        var ary=num[i];
+        if(obj[ary]){
+            num.splice(i,1);
+            i--;
+        }else{
+            obj[ary]=ary;
+        }
+    }
+    console.log(num);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 80px;
+            height: 30px;
+            background-color: #dddddd;
+            line-height: 30px;
+            cursor: pointer;
+            text-align: center;
+            color: red;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    var str = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var oDiv = document.getElementById("div1");
+    function getCode() {
+        var num = null;
+        var ary = [];
+        var code = "";
+        while (ary.length<4){
+            num = Math.floor(Math.random()*62);
+            if(ary.indexOf(num)==-1){
+                ary.push(num);
+                code += str.charAt(num);
+            }
+        }
+        oDiv.innerHTML = code;
+    }
+    getCode();
+    oDiv.onclick = function () {
+        getCode();
+    }
+</script>
+</body>
+</html>

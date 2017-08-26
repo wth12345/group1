@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style type="text/css">
+        #oDiv{
+            color: #fff000;
+            height: 80px;
+            line-height: 75px;
+            background-color:#f92828;
+            text-align: center;
+        }
+        #oDiv span{
+            padding:10px;
+            color: #a5fb16;
+
+        }
+    </style>
+</head>
+<body>
+<div id="oDiv">
+    距离2018年高考还有：
+    <span id="div1">0-10时 6分 6秒</span>
+</div>
+</body>
+</html>
+<script>
+var oDiv=document.getElementById("div1");
+function getTime() {
+    var now=new Date;
+    var target=new Date("2018/06/07 09:00:00");
+    var spanTime=target.getTime()-now.getTime();
+    var hour=Math.floor(spanTime/(60*60*1000));
+    spanTime=spanTime-hour*60*60*1000;
+    var minute=Math.floor(spanTime/(60*1000));
+    spanTime=spanTime-minute*60*1000;
+    var second=Math.floor(spanTime/1000);
+    var str=zero(hour)+"时"+zero(minute)+"分"+zero(second)+"秒";
+    oDiv.innerHTML=str;
+}
+function zero(num) {
+    return num<10?"0"+num:num;
+}
+getTime();
+var timer=window.setInterval(getTime,1000);
+var oDi=document.getElementById("oDiv");
+oDi.onclick=function () {
+    if (timer){
+        window.clearInterval(timer);
+        timer=null;
+    }else{
+        timer=window.setInterval(getTime,1000);
+    }
+}
+</script>

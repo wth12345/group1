@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function average(){
+        Array.prototype.sort.call(arguments,function(a,b){return a-b});
+        [].pop.call(arguments);
+        [].shift.call(arguments);
+        var res = (eval(Array.prototype.join.call(arguments, "+"))/arguments.length).toFixed(2);
+        console.log(res);
+    }
+    var res = average(84,85,86,98,75,88,87);
+</script>

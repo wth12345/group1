@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sum() {
+        var total = null;
+        for (var i = 0; i < arguments.length; i++) {
+            !isNaN(arguments[i]) ? total += Number(arguments[i]) : null;
+        }
+        return total;
+    }
+    console.log(sum(10, 20, undefined, null, "12"));
+</script>
+</body>
+</html>
