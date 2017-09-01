@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        img{
+            width: 200px;
+            height: 200px;
+            border:1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+<div style="height: 1900px;"></div>
+<img src="../img/error.jpg" realimg="../img/8.jpg">
+
+</body>
+</html>
+<script src="../utils.js"></script>
+<script>
+    var oImg = document.getElementsByTagName('img')[0];
+    var imgT = utils.offset(oImg).t+oImg.offsetHeight;
+
+    window.onscroll= function(){
+        var clientH = utils.win("clientHeight");
+        var scrollT = utils.win("scrollTop");
+        var winT = clientH+scrollT;
+        if(winT>=imgT){
+            if(oImg.loaded) return;
+            var tempImg = new Image();
+            tempImg.src = oImg.getAttribute("realImg");
+            tempImg.onload = function(){
+                oImg.src = this.src;
+                oImg.loaded = true;
+                tempImg = null;
+            };
+            tempImg.onerror = function(){
+                oImg.loaded = true;
+                oImg.src = "img/error.jpg";
+            }
+        }
+    }
+
+</script>
