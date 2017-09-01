@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var k = 0;
+    var timer = setInterval(function(){
+                if(k==4){
+                    clearInterval(timer);
+                    timer = null;
+                    return;
+                }
+                k++;
+                var i = 0;
+                var str = '';
+                while(i<4){
+                    str +=Math.round(Math.random()*9);
+                    i++;
+                }
+                console.log(str);
+            },1000)
+</script>

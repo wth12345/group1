@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: green;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    //方法1
+    var oDiv = document.getElementById("box");
+    var cur = 0;
+    /*oDiv.onclick=function(){
+     oDiv.innerHTML=++cur;
+     }*/
+    //方法2
+    /*(function () {
+     var cur = 0;
+     oDiv.onclick = function () {
+     oDiv.innerHTML = ++cur;
+     }
+     })()*/
+    //方法3
+    oDiv.onclick = function () {
+        var cur = 0;
+        return function () {
+            oDiv.innerHTML = ++cur;
+        }
+    }()
+</script>

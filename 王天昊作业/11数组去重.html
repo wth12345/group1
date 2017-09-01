@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary = [8,6,5,3,6,9,8,3,5,1,6,5];
+
+    /*function qu(ary) {
+        var newary = [];
+        for(var i = 0;i<ary.length;i++){
+            if(newary.indexOf(ary[i])==-1){
+                newary.push(ary[i]);
+            }
+        }
+        return newary;
+    }*/
+
+    function qu(ary) {
+        var obj = {};
+        for(var i = 0;i<ary.length;i++){
+            var cur = ary[i];
+            if(obj[cur] == cur){
+                ary[i] = ary[ary.length-1];
+                ary.pop();
+                i--;
+                continue;
+            }
+            obj[cur] = cur;
+        }
+        return ary;
+    }
+</script>
+</body>
+</html>

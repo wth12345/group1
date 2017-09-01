@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary = [43,26,15,22,9,31];
+    //方法一：apply传参给Math.max和Math.min
+    /*var max = Math.max.apply(null,ary);
+    var min = Math.min.apply(null,ary);
+    console.log(max, min);*/
+
+    //方法二：用数组排序的方法
+    /*ary.sort(function (a,b) {
+        return a-b;
+    });
+    var max = ary[ary.length-1];
+    var min = ary[0];
+    console.log(max, min);*/
+
+    //方法三：用字符串拼接，在eval下执行
+    var str = ary.toString();
+    var max = eval("Math.max("+str+")");
+    var min = eval("Math.min("+str+")");
+    console.log(max, min);
+</script>
+</body>
+</html>

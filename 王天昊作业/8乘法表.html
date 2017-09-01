@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        span{
+            display: inline-block;
+            width: 80px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="tab"></div>
+<script>
+    var str = "";
+    str+="<ul>";
+        for(var i =1;i<=9;i++){
+            str+="<li>";
+            for(var j = 1;j<=i;j++){
+                str+="<span>";
+                    str+=i+" * "+j+" = "+i*j;
+                str+="</span>";
+            }
+            str+="</li>";
+        }
+    str+="</ul>";
+    var oTab = document.getElementById("tab");
+    oTab.innerHTML = str;
+</script>
+</body>
+</html>

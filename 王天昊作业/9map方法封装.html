@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Array.prototype.myMap = function (callback, context) {
+        if ([].map) {
+            return this.map(callback, context);
+        }
+        var res = null;
+        var ary = [];
+        context = context || window;
+        for (var i = 0; i < this.length; i++) {
+            res = callback.call(context, this[i], i, this);
+            ary.push(res);
+        }
+        return ary;
+    };
+</script>
+</body>
+</html>

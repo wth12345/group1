@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: deepskyblue;
+            color: black;
+            line-height: 100px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">0</div>
+<script>
+    var oDiv = document.getElementById("div1");
+    //方法一：全局作用域下
+    /*var num = 0;
+    oDiv.onclick = function () {
+        oDiv.innerHTML = ++num;
+    }*/
+
+    //方法二：闭包，作用域不销毁
+    /*~(function () {
+        var num = 0;
+        oDiv.onclick = function () {
+            oDiv.innerHTML = ++num;
+        }
+    })();*/
+
+    //方法三：
+    oDiv.onclick = function () {
+        var num = 0;
+        return function () {
+            oDiv.innerHTML = ++num;
+        }
+    }();
+</script>
+</body>
+</html>
