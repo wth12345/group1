@@ -1,0 +1,56 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    height: 1000px;
+    background: gainsboro;
+    padding-top: 20px;
+}
+
+.top {
+    width: 1160px;
+    margin: 0 auto;
+    background: whitesmoke;
+    padding: 30px 20px 30px 20px;
+}
+
+.top span {
+    margin-right: 50px;
+}
+
+.top a {
+    margin-right: 30px;
+}
+
+.top a:hover {
+    color: red;
+}
+
+.bottom {
+    width: 1200px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+ul li {
+    width: 194px;
+    background: whitesmoke;
+    padding: 0 0 10px 10px;
+    float: left;
+    margin: 15px;
+    margin-left: 0;
+    border: 1px solid white;
+}
+
+ul li:hover {
+    border: 1px solid red;
+}
+
+ul li span {
+    display: block;
+    line-height: 40px;
+    width: 196px;
+}
