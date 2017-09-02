@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var obj={};
+    var str="aaacccbbAAAAADDDDD";
+    for (var i = 0; i < str.length; i++) {
+        var cur=str[i];
+        if (obj[cur]){
+            obj[cur]++;
+        }else {
+            obj[cur]=1;
+        }
+    }
+    var max=0;
+    var maxStr="";
+    for (var attr in obj){
+        if (obj[attr]>max){
+            max=obj[attr];
+            maxStr=attr;
+        }else if (obj[attr]==max){
+            maxStr+=","+attr;
+        }
+    }
+    console.log(max, maxStr);
+</script>

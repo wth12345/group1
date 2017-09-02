@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="oul">
+    <li>1</li>
+    <li>2</li>
+    <li id="oli">3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+</html>
+<script>
+    var oli=document.getElementById("oli");
+    function preBro(ele){
+        var bro=ele.previousSibling;
+        while (bro){
+            if (bro.nodeType==1){
+                return bro;
+            }
+            bro=bro.previousSibling;
+        }
+        return null;
+    }
+    console.log(preBro(oli));
+</script>

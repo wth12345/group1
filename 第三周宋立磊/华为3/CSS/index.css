@@ -1,0 +1,36 @@
+body{
+    background: ghostwhite;
+    font-size: 16px;
+}
+.wrap{
+    width: 800px;
+    margin: 0px auto;
+}
+.menu{
+    height: 40px;
+    line-height: 40px;
+    background: white;
+}
+.menu span a{
+    float: left;
+}
+.menu a{
+    margin-left: 20px;
+}
+.list{
+    overflow: hidden;
+}
+.list li{
+    float: left;
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 170px;
+    padding: 10px;
+    background: white;
+}
+.list li img{
+    width: 100%;
+}
+.list li p{
+    margin-top: 10px;
+}

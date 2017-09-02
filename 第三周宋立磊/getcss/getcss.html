@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function getcss(ele,attr){
+        var res;
+        if(window.getComputedStyle){
+            res=window.getComputedStyle(ele,null)[attr];
+        }else {
+            if (attr=="opacity"){
+                res=ele.currentStyle.filter;
+                var reg=/^alpha\(ocpacity\s*=\s*(\d*(?:\.\d+)?)\)$/g;
+                return reg.test(res)?RegExp.$1/100:1;
+            }
+            res=ele.currentStyle[attr];
+        }
+        var reg=/^[+-]?(?:\d+)(?:\.\d+)?(?:px|em|rem)?$/i;
+        return reg.test(res)?parseFloat(res):res;
+    }
+</script>

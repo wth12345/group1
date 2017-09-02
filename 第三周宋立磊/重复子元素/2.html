@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str="aaacccbbAAAAADDDDD";
+    str=str.split("").sort().join("");
+    var reg=/(\w)\1*/g;
+    var max=0;
+    var maxStr='';
+    str.replace(reg,function($0,$1){
+        if ($0.length>max){
+            max=$0.length;
+            maxStr=$1;
+        }else if($0.length==max){
+            maxStr+=","+$1;
+        }
+    });
+    console.log(max, maxStr);
+</script>
