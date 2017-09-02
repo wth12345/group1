@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 800px;
+            height: 200px;
+            border: 5px dashed red;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        #list {
+            overflow: hidden;
+            list-style: none;
+        }
+
+        #list li {
+            float: left;
+        }
+
+        #list li img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <ul id="list">
+        <li><img src="img/5.gif"></li>
+        <li><img src="img/5.gif"></li>
+        <li><img src="img/5.gif"></li>
+        <li><img src="img/5.gif"></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    var oUl = document.getElementById("list");
+    var oLis = oUl.getElementsByTagName("li");
+    oUl.innerHTML += oUl.innerHTML;
+    oUl.style.width = oLis.length * oLis[0].offsetWidth + "px";
+    window.setInterval(function () {
+        oDiv.scrollLeft++;
+        if (oDiv.scrollLeft == oUl.offsetWidth / 2) {
+            oDiv.scrollLeft = 0;
+        }
+    },10)
+</script>

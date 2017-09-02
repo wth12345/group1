@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        img{
+            width: 200px;
+            height: 200px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div style="height: 1000px;"></div>
+<img src="img2/default.gif"  realImg = "img2/41.jpg" />
+
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var oImg = document.getElementsByTagName('img')[0];
+    var imgT = utils.offset(oImg).t+oImg.offsetHeight;
+
+    window.onscroll= function(){
+        var clientH = utils.win("clientHeight");
+        var scrollT = utils.win("scrollTop");
+        var winT = clientH+scrollT;
+        if(winT>=imgT){
+            if(oImg.loaded) return;
+            var tempImg = new Image();
+            tempImg.src = oImg.getAttribute("realImg");
+            tempImg.onload = function(){
+                oImg.src = this.src;
+                oImg.loaded = true;
+                tempImg = null;
+            };
+            tempImg.onerror = function(){
+                oImg.loaded = true;
+                oImg.src = "img2/error.jpg";
+            }
+        }
+
+    }
+</script>
