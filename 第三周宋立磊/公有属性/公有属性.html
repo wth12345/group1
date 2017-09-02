@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+   /* function publicAttr(attr,ele){
+        if (attr in ele && ele.__proto__[attr]){
+            return true;
+        }
+    }*/
+   Object.prototype.publicAttr=function(attr){
+       return  ! this.hasOwnProperty(attr) && attr in this;
+   };
+    function F(){
+        this.x=1;
+    }
+    F.prototype.fn=function(){
+
+    };
+    var f=new F();
+   console.log(f.publicAttr("fn"));
+   console.log(f.publicAttr("x"));
+</script>

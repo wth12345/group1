@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .outer{
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        .outer img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <img id="img" src="img/default.jpg" real="img/jd.jpg">
+</div>
+</body>
+</html>
+<script src="JS/utilis.js"></script>
+<script>
+    var oImg=document.getElementById("img");
+    function display(){
+        var temp=new Image;
+        temp.src=oImg.getAttribute("real");
+        temp.onload=function(){
+            oImg.src=this.src;
+            temp=null;
+        };
+        temp.onerror=function(){
+            oImg.src="img/error.jpg"
+        }
+    }
+    setTimeout(display,1000)
+
+</script>

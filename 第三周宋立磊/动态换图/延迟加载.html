@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .h{
+            height: 1000px;
+        }
+        .outer{
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        .outer img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="h"></div>
+<div class="outer">
+    <img id="img" src="img/default.jpg" real="img/jd11.jpg">
+</div>
+</body>
+</html>
+<script src="JS/utilis.js"></script>
+<script>
+    var oImg=document.getElementById("img");
+    var imgH=utils.offset(oImg).t+oImg.offsetHeight;
+    window.onscroll=function(){
+        var winH=utils.win("clientHeight")+utils.win("scrollTop");
+        if (winH>=imgH){
+            if (oImg.loaded)return;
+            var temp=new Image;
+            temp.src=oImg.getAttribute("real");
+            temp.onload=function(){
+                oImg.src=this.src;
+                oImg.loaded=true;
+                temp=null;
+            };
+            temp.onerror=function(){
+                oImg.src="img/error.jpg";
+                oImg.loaded=true;
+            }
+        }
+    }
+</script>
